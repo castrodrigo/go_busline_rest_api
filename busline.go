@@ -6,6 +6,7 @@ import (
     "net/http"
 
     "github.com/gorilla/mux"
+    "github.com/twinj/uuid"
 )
 
 type BusLine struct {
@@ -20,31 +21,45 @@ type Route struct {
     To        string `json:"to,omitempty"`
 }
 
-var busLine []BusLine
+var busLines []BusLine
 
 // GET
 
 func GetBusLines(writer http.ResponseWriter, request *http.Request) {
-    json.NewEncoder(writer).Encode(busLine)
+    json.NewEncoder(writer).Encode(busLines)
 }
 
 func GetBusLineById(writer http.ResponseWriter, request *http.Request) {
     params := mux.Vars(request)
-    for _, item := range busLine {
+    for _, item := range busLines {
         if item.ID == params["id"] {
             json.NewEncoder(writer).Encode(item)
             return
         }
     }
+    // Return empty object
+    json.NewEncoder(writer).Encode(&BusLine{})
 }
 
+// POST
 
+func AddBusLine(writer http.ResponseWriter, request *http.Request) {
+    var busLine BusLine
+    busLine.ID = uuid.Formatter(uuid.NewV4(), uuid.FormatCanonicalCurly)
+    _ = json.NewDecoder(request.Body).Decode(&busLine)
+    busLines = append(busLines, busLine)
+    json.NewEncoder(writer).Encode(busLines)
+}
+
+// DELETE
+
+// SomeCode
 
 // MAIN
 
 func main() {
-    busLine = append(busLine, BusLine {
-            ID: "1",
+    busLines = append(busLines, BusLine {
+            ID: uuid.Formatter(uuid.NewV4(), uuid.FormatCanonicalCurly),
             Name: "Manoel Torres",
             Number: "107",
             Route: &Route {
@@ -54,6 +69,7 @@ func main() {
     router := mux.NewRouter()
     router.HandleFunc("/busLine/", GetBusLines).Methods("GET")
     router.HandleFunc("/busLine/{id}", GetBusLineById).Methods("GET")
+    router.HandleFunc("/busLine/", AddBusLine).Methods("POST")
 
     // RUNNING PORT
 
