@@ -1,0 +1,142 @@
+{
+	"variables": [],
+	"info": {
+		"name": "go_busline",
+		"_postman_id": "3defe9fa-fb39-4146-0cd4-2e31f2477a2b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Buslines",
+			"request": {
+				"url": "http://localhost:9009/busLine/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Busline",
+			"request": {
+				"url": {
+					"raw": "http://localhost:9009/busLine/:id",
+					"protocol": "http",
+					"auth": {},
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"busLine",
+						":id"
+					],
+					"variable": [
+						{
+							"value": "",
+							"id": "id"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Add Busline",
+			"request": {
+				"url": "http://localhost:9009/busLine/",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Manoel Torres\",\"number\":\"107\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Busline",
+			"request": {
+				"url": {
+					"raw": "http://localhost:9009/busLine/:id",
+					"protocol": "http",
+					"auth": {},
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"busLine",
+						":id"
+					],
+					"variable": [
+						{
+							"value": "{742a928c-5e66-4bde-aa8f-e497db719b31}",
+							"id": "id"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Busline",
+			"request": {
+				"url": {
+					"raw": "http://localhost:9009/busLine/:id",
+					"protocol": "http",
+					"auth": {},
+					"host": [
+						"localhost"
+					],
+					"port": "9009",
+					"path": [
+						"busLine",
+						":id"
+					],
+					"variable": [
+						{
+							"value": "",
+							"id": "id"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Centro\",\"number\":\"100\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

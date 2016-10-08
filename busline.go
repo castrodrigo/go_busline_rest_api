@@ -53,7 +53,17 @@ func AddBusLine(writer http.ResponseWriter, request *http.Request) {
 
 // PUT
 
-// @TODO Edit method
+func EditBusLine(writer http.ResponseWriter, request *http.Request) {
+    params := mux.Vars(request)
+    for index, item := range busLines {
+        if item.ID == params["id"] {
+            _ = json.NewDecoder(request.Body).Decode(&item)
+            busLines = append(busLines[:index], item)
+            break
+        }
+    }
+    json.NewEncoder(writer).Encode(busLines)
+}
 
 // DELETE
 
@@ -83,6 +93,7 @@ func main() {
     router.HandleFunc("/busLine/", GetBusLines).Methods("GET")
     router.HandleFunc("/busLine/{id}", GetBusLineById).Methods("GET")
     router.HandleFunc("/busLine/", AddBusLine).Methods("POST")
+    router.HandleFunc("/busLine/{id}", EditBusLine).Methods("PUT")
     router.HandleFunc("/busLine/{id}", DeleteBusLine).Methods("DELETE")
 
     // RUNNING PORT
