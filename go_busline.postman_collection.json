@@ -10,7 +10,7 @@
 		{
 			"name": "Get Buslines",
 			"request": {
-				"url": "http://localhost:9009/busLine/",
+				"url": "http://localhost:9009/busline/",
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -25,7 +25,7 @@
 			"name": "Get Busline",
 			"request": {
 				"url": {
-					"raw": "http://localhost:9009/busLine/:id",
+					"raw": "http://localhost:9009/busline/:id",
 					"protocol": "http",
 					"auth": {},
 					"host": [
@@ -33,7 +33,7 @@
 					],
 					"port": "9009",
 					"path": [
-						"busLine",
+						"busline",
 						":id"
 					],
 					"variable": [
@@ -56,7 +56,7 @@
 		{
 			"name": "Add Busline",
 			"request": {
-				"url": "http://localhost:9009/busLine/",
+				"url": "http://localhost:9009/busline/",
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -71,7 +71,7 @@
 			"name": "Delete Busline",
 			"request": {
 				"url": {
-					"raw": "http://localhost:9009/busLine/:id",
+					"raw": "http://localhost:9009/busline/:id",
 					"protocol": "http",
 					"auth": {},
 					"host": [
@@ -79,7 +79,7 @@
 					],
 					"port": "9009",
 					"path": [
-						"busLine",
+						"busline",
 						":id"
 					],
 					"variable": [
@@ -110,7 +110,7 @@
 			"name": "Edit Busline",
 			"request": {
 				"url": {
-					"raw": "http://localhost:9009/busLine/:id",
+					"raw": "http://localhost:9009/busline/:id",
 					"protocol": "http",
 					"auth": {},
 					"host": [
@@ -118,7 +118,7 @@
 					],
 					"port": "9009",
 					"path": [
-						"busLine",
+						"busline",
 						":id"
 					],
 					"variable": [

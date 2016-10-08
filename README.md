@@ -45,4 +45,4 @@ $GOPATH/bin/go_simple_rest_api
 
 ## Accessing API
 
-http://localhost:9009/busLine/
+http://localhost:9009/busline/

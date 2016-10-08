@@ -90,11 +90,11 @@ func main() {
                     To: "Historic Center Bus Terminal" }})
 
     router := mux.NewRouter()
-    router.HandleFunc("/busLine/", GetBusLines).Methods("GET")
-    router.HandleFunc("/busLine/{id}", GetBusLineById).Methods("GET")
-    router.HandleFunc("/busLine/", AddBusLine).Methods("POST")
-    router.HandleFunc("/busLine/{id}", EditBusLine).Methods("PUT")
-    router.HandleFunc("/busLine/{id}", DeleteBusLine).Methods("DELETE")
+    router.HandleFunc("/busline/", GetBusLines).Methods("GET")
+    router.HandleFunc("/busline/{id}", GetBusLineById).Methods("GET")
+    router.HandleFunc("/busline/", AddBusLine).Methods("POST")
+    router.HandleFunc("/busline/{id}", EditBusLine).Methods("PUT")
+    router.HandleFunc("/busline/{id}", DeleteBusLine).Methods("DELETE")
 
     // RUNNING PORT
 
