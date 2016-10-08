@@ -20,13 +20,17 @@ type Route struct {
     To        string `json:"to,omitempty"`
 }
 
-var busline []BusLine
+var busLine []BusLine
 
 // GET
 
+func GetBusLines(writer http.ResponseWriter, request *http.Request) {
+    json.NewEncoder(writer).Encode(busLine)
+}
+
 func GetBusLineById(writer http.ResponseWriter, request *http.Request) {
     params := mux.Vars(request)
-    for _, item := range busline {
+    for _, item := range busLine {
         if item.ID == params["id"] {
             json.NewEncoder(writer).Encode(item)
             return
@@ -39,7 +43,7 @@ func GetBusLineById(writer http.ResponseWriter, request *http.Request) {
 // MAIN
 
 func main() {
-    busline = append(busline, BusLine {
+    busLine = append(busLine, BusLine {
             ID: "1",
             Name: "Manoel Torres",
             Number: "107",
@@ -48,6 +52,7 @@ func main() {
                     To: "Historic Center Bus Terminal" }})
 
     router := mux.NewRouter()
+    router.HandleFunc("/busLine/", GetBusLines).Methods("GET")
     router.HandleFunc("/busLine/{id}", GetBusLineById).Methods("GET")
 
     // RUNNING PORT
