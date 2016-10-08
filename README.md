@@ -4,9 +4,9 @@ Draf Rest API with Go
 I'm using this code to start some drafts to a Bus Lines Rest API with GO.
 In this repo you'll find a Postman collection.
 
-# Installing GO
+# Installing Go
 
-Follow the instructions of oficial GO website https://golang.org/doc/install
+Follow the instructions of oficial Go website https://golang.org/doc/install
 
 # Application
 
