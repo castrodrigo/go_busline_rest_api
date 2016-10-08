@@ -51,9 +51,22 @@ func AddBusLine(writer http.ResponseWriter, request *http.Request) {
     json.NewEncoder(writer).Encode(busLines)
 }
 
+// PUT
+
+// @TODO Edit method
+
 // DELETE
 
-// SomeCode
+func DeleteBusLine(writer http.ResponseWriter, request *http.Request) {
+    params := mux.Vars(request)
+    for index, item := range busLines {
+        if item.ID == params["id"] {
+            busLines = append(busLines[:index], busLines[index+1:]...)
+            break
+        }
+    }
+    json.NewEncoder(writer).Encode(busLines)
+}
 
 // MAIN
 
@@ -70,6 +83,7 @@ func main() {
     router.HandleFunc("/busLine/", GetBusLines).Methods("GET")
     router.HandleFunc("/busLine/{id}", GetBusLineById).Methods("GET")
     router.HandleFunc("/busLine/", AddBusLine).Methods("POST")
+    router.HandleFunc("/busLine/{id}", DeleteBusLine).Methods("DELETE")
 
     // RUNNING PORT
 
