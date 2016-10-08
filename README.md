@@ -12,14 +12,14 @@ Follow the instructions of oficial GO website https://golang.org/doc/install
 
 ## Dependencies
 
-The API needs some dependencies
+The API needs some dependencies:
 
 ```
 github.com/gorilla/mux
 github.com/twinj/uuid
 ```
 
-Install each of them with
+Install each of them with:
 
 ```
 go get github.com/gorilla/mux
@@ -30,6 +30,19 @@ go get github.com/twinj/uuid
 
 ## Installing
 
+Create a folder "github.com/castrodrigo/go_simple_rest_api" on your GO Work directory, and clone this repo.
+Install the application:
+
 ```
 go install github.com/castrodrigo/go_simple_rest_api
 ```
+
+On your bin directory. Run the application:
+
+```
+$GOPATH/bin/go_simple_rest_api
+```
+
+## Accessing API
+
+http://localhost:9009/busLine/
